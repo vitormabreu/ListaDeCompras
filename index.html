@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="groceryListApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,54 +21,23 @@
 </head>
 <body>
 <!--NAVBAR-->
-<div class="navbar navbar-inverse">
+<div class="navbar navbar-inverse" ng-controller="HomeController">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="#" class="navbar-brand">
                 <span class="glyphicon glyphicon-apple" style="color: #419641"></span>
-                Lista de Compras
+                {{appTitle}}
             </a>
         </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container" ng-controller="ListItemsController">
     <div class="col-xs-12">
         <ul class="list-group">
-            <li class="list-group-item text-center clearfix">
-                <button type="button" class="btn btn-sm btn-success pull-left">
-                    <span class="glyphicon glyphicon-unchecked"></span>
-                </button>
-                <span style="font-weight: bold">
-                    Item 01
-                </span>
-                <button type="button" class="btn btn-sm btn-default pull-right">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                </button>
+            <li ng-repeat="item in groceryItems | orderBy: 'itemName'" class="list-group-item text-center clearfix">
+                <span style="font-weight: bold">{{item.itemName | uppercase}}</span>
             </li>
-            <li class="list-group-item text-center clearfix">
-                <button type="button" class="btn btn-sm btn-success pull-left">
-                    <span class="glyphicon glyphicon-unchecked"></span>
-                </button>
-                <span style="font-weight: bold">
-                    Item 02
-                </span>
-                <button type="button" class="btn btn-sm btn-default pull-right">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                </button>
-            </li>
-            <li class="list-group-item text-center clearfix">
-                <button type="button" class="btn btn-sm btn-success pull-left">
-                    <span class="glyphicon glyphicon-unchecked"></span>
-                </button>
-                <span style="font-weight: bold">
-                    Item 03
-                </span>
-                <button type="button" class="btn btn-sm btn-default pull-right">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                </button>
-            </li>
-
         </ul>
     </div>
 
@@ -78,6 +47,7 @@
 <script src="lib/jquery-3.2.1.min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
 <script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
 <script src="js/app.js"></script>
 
 </body>

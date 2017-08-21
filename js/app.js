@@ -1,12 +1,12 @@
-var app = angular.module('groceryListApp', []);
+var app = angular.module('groceryListApp', ['ngRoute']);
 
-app.controller('HomeController', [$scope, function ($scope) {
+app.controller('HomeController', ['$scope', function ($scope) {
 
     $scope.appTitle = 'Lista de Compras';
 
 }])
 
-app.controller('ListItemsController', [$scope, function ($scope) {
+app.controller('ListItemsController', ['$scope', function ($scope) {
 
     $scope.groceryItems = [
         {completed: true, itemName: 'Leite', date: '03/08/2017'},
